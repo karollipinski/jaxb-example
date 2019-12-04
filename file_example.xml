@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<University>
+    <name>Uniwersytet Warszawski</name>
+    <address>Polska</address>
+    <Students>
+        <Student id="ID:1">
+            <birthDate>1956-10-01</birthDate>
+            <section>Computer Science</section>
+            <firstName>Anna</firstName>
+            <lastName>Nowak</lastName>
+        </Student>
+        <Student id="ID:2">
+            <birthDate>1916-03-03</birthDate>
+            <section>Physics</section>
+            <firstName>Karol</firstName>
+            <lastName>Kowalski</lastName>
+        </Student>
+        <Student id="ID:3">
+            <birthDate>1958-11-04</birthDate>
+            <section>Computer Science</section>
+            <firstName>Zenon</firstName>
+            <lastName>Polny</lastName>
+        </Student>
+    </Students>
+</University>

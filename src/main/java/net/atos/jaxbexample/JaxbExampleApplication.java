@@ -11,6 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -62,7 +63,27 @@ public class JaxbExampleApplication {
         // create JAXB context
         JAXBContext context = JAXBContext.newInstance(University.class);
 
+        // Generowanie pliku XML
+        System.out.println("--------------Generowanie XML ------------------");
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
+        // wygeneruje XML do sout
+        marshaller.marshal(university, System.out);
+
+        //wygeneruj do pliku
+        marshaller.marshal(university, new File(XML_FILE));
+
+        marshaller.marshal(university, new FileOutputStream("/home/klipinski/Pulpit/student.xml"));
+        // -----------------------
+
+        // Generowanie Java Object z XML
+        System.out.println("--------------Pobieranie danych z XML i mapowanie na obiekt Javy ------------------");
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        University unmarshalUniversity = (University) unmarshaller.unmarshal(new FileReader(XML_FILE));
+
+        List<Student> studentList = unmarshalUniversity.getStudents();
+        studentList.forEach(System.out::println);
     }
 
 }

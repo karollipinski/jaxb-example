@@ -9,10 +9,11 @@ import java.time.LocalDate;
 
 @XmlRootElement(name = "Student")
 @XmlType(propOrder = {
-        "firstName",
-        "lastName",
         "dob",
-        "section"})
+        "section",
+        "firstName",
+        "lastName"
+      })
 public class Student {
 
     private int id;
@@ -22,11 +23,12 @@ public class Student {
     private String section;
 
     @XmlAttribute(name = "id")
-    public int getId() {
+    @XmlJavaTypeAdapter(IdAdapter.class)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
